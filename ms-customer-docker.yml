@@ -1,6 +1,6 @@
 
 server:
-  port: 7077
+  port: 7079
 spring:
   application:
     name: ms-customer
