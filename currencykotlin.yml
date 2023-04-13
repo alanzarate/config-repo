@@ -19,7 +19,7 @@ spring:
 
   
 server:
-  port: '{cipher}c1e3d1384f57176cd206eaa0e239571799b5f8a9b6bf0b83a06a6e300e5b56b9'
+  port: '{cipher}c1e3d1384f57176cd206eaa0e239571799b5f8a9b6bf0b83a06a6e300e5b56b9%'
 
 keycloak:
   config:
