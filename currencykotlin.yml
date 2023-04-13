@@ -1,0 +1,51 @@
+api:
+  key: ${API_KEY}
+  url: '{cipher}3900edbbe87293d866e69655c2f0bac81d22597722402b2b107f65b76b417419d103852368fe25a5710f6643c2dea66e3873b6d4531902720b09157d7ca0093ea62978a114788130b0566f31356202bd'
+  #url: "https://api.apilayer.com/exchangerates_data/convert"
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+  config:
+    import: optional:file:.env[.properties]
+  application:
+    name: currency-converter
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  
+server:
+  port: '{cipher}08fb96b3ca4502e30472641f415a4569f9a985d223e8ba61a0176380e12fa9ff'
+
+keycloak:
+  config:
+    import: optional:file:.env[.properties]
+  realm: testing2
+  auth-server-url: ${URL_KEYCLOAK}
+  autodetect-bearer-only: true
+  ssl-required: none
+  resource: backend
+  credentials:
+    secret: J82JDRDUaIyMABThMlFGvQid1jsULeG5
+  use-resource-role-mappings: false
+  security-constraints:
+    - auth-roles:
+        - ADMIN
+      security-collections:
+        - name: SERVICIOS DEL ADMINISTRADOR
+          methods:
+            - GET
+          patterns:
+            - /api/v1/currency/all
+    - auth-roles:
+        - USER
+      security-collections:
+        - name: SERVICIOS DEL USUARIO
+          methods:
+            - GET
+          patterns:
+            - /api/v1/currency/convert
