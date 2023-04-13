@@ -12,7 +12,7 @@ spring:
   config:
     import: optional:file:.env[.properties]
   application:
-    name: currency-converter
+    name: currencykotlin
   jpa:
     hibernate:
       ddl-auto: update
